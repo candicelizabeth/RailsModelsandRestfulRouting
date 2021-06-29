@@ -1,4 +1,6 @@
 class Shoe < ApplicationRecord
+    validates :price, presence: true
+
     def name_and_color 
         "#{self.name} - #{self.color}"
     end
