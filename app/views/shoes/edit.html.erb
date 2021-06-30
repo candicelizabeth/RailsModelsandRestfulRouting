@@ -1,0 +1,11 @@
+<%= form_for @shoe do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :price %>
+<%= f.number_field :price,  step: 0.01%>
+<%= f.label :condition %>
+<%= f.text_field :condition %>
+<%= f.label :color %>
+<%= f.text_field :color %>
+<%= f.submit %>
+<% end %>
