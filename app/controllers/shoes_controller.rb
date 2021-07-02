@@ -49,8 +49,6 @@ class ShoesController < ApplicationController
         params.require(:shoe).permit(:name, :color, :price, :condition)
     end
 
-   def new_method 
-    "hi I work!!"
-   end
+   
 
 end
