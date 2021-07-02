@@ -49,6 +49,8 @@ class ShoesController < ApplicationController
         params.require(:shoe).permit(:name, :color, :price, :condition)
     end
 
-   
+   def hello 
+    "hello world! "
+   end
 
 end
