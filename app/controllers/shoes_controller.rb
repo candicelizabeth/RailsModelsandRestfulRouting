@@ -48,4 +48,8 @@ class ShoesController < ApplicationController
     def shoe_params
         params.require(:shoe).permit(:name, :color, :price, :condition)
     end
+
+    def  new_feature 
+        "new feature!"
+    end
 end
