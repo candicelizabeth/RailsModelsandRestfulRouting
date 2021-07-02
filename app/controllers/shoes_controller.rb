@@ -4,7 +4,7 @@ class ShoesController < ApplicationController
     end
 
     def show
-        find_shoe
+        @shoe = Shoe.find_by_id(params[:id])
     end
 
     def new 
@@ -21,11 +21,11 @@ class ShoesController < ApplicationController
     end
 
     def edit 
-        find_shoe
+        @shoe = Shoe.find_by_id(params[:id])
     end
 
     def update 
-        find_shoe
+        @shoe = Shoe.find_by_id(params[:id])
         @shoe.update(shoe_params)
         if @shoe.valid?
             redirect_to shoe_path(@shoe)
@@ -40,9 +40,7 @@ class ShoesController < ApplicationController
     end
 
     def destroy 
-        find_shoe
-        @shoe.destroy 
-        redirect_to shoes_path
+        @shoe = Shoe.find_by_id(params[:id])
     end
 
     private 
@@ -50,7 +48,4 @@ class ShoesController < ApplicationController
     def shoe_params
         params.require(:shoe).permit(:name, :color, :price, :condition)
     end
-
-    def find_shoe 
-        Shoe.find_by_id(params[:id])
-    end
+end
