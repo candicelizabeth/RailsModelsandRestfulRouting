@@ -2,4 +2,5 @@
 <%= @shoe.name_and_color %>
 <%= @shoe.condition %>
 <%= @shoe.price %>
+<%= link_to "Edit", edit_shoe_path(@shoe)%>
 <%= link_to "Delete", shoe_path(@shoe), method: 'delete' %>

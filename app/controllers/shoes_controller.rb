@@ -13,6 +13,7 @@ class ShoesController < ApplicationController
 
     def create 
         @shoe = Shoe.new(shoe_params)
+        # byebug
         if @shoe.save
             redirect_to shoes_path
         else
@@ -41,6 +42,8 @@ class ShoesController < ApplicationController
 
     def destroy 
         @shoe = Shoe.find_by_id(params[:id])
+        @shoe.destroy 
+        redirect_to shoes_path
     end
 
     private 
@@ -48,9 +51,5 @@ class ShoesController < ApplicationController
     def shoe_params
         params.require(:shoe).permit(:name, :color, :price, :condition)
     end
-
-   def hello 
-    "hello world! "
-   end
 
 end

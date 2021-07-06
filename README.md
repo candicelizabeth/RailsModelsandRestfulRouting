@@ -1,3 +1,11 @@
+## Rails Validations 
+July 6th Tasks:
+Explain why we use model validations rather than view or controller validations
+Use the Active Record Validations Guide to add standard validations to our data
+Display error messages using .errors
+Create custom validations
+
+
 ## Rails CRUD
 June 28th Tasks:
 Create a form for making new shoes and the corresponding new/create actions

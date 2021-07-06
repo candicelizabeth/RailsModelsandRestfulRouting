@@ -1,4 +1,29 @@
 <h1>Shoe Form</h1>
+<% if @shoe.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@shoe.errors.count, "error") %> prohibited this shoe from being saved:</h2>
+
+    <ul>
+      <% @shoe.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@shoe) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br/>
+<%= f.label :price %>
+<%= f.number_field :price, step: 0.01%><br/>
+<%= f.label :condition %>
+<%= f.text_field :condition %><br/>
+<%= f.label :color %>
+<%= f.text_field :color  %><br/>
+<%= f.submit %>
+<% end %>
+
+<!--
 <form method="POST" action="/shoes">
 <input type="hidden" name=authenticity_token value="<%= form_authenticity_token %>">
 <label for="shoe_brand">Brand: </label>
@@ -15,18 +40,10 @@
 <%= submit_tag "Create Shoe" %>
 <% end %>
 ---------------------------------------------------------------------
-<%= form_for(@shoe) do |f| %>
-<%= f.label :brand %>
-<%= f.text_field :brand %>
-<%= f.label :price %>
-<%= f.number_field :price, step: 0.01%>
-<%= f.submit %>
-<% end %>
----------------------------------------------------------------------
 <%= form_with(model: @shoe) do |f| %>
 <%= f.label :brand %>
 <%= f.text_field :brand %>
 <%= f.label :price %>
 <%= f.number_field :price, step: 0.01%>
 <%= f.submit %>
-<% end %>
+<% end %> -->
