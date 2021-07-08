@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :brands
   get '/shoes/most_expensive', to: 'shoes#most_expensive'
   #  get '/shoes', to: 'shoes#index'
   #  get '/shoes/:id', to: 'shoes#show', as: 'shoe'

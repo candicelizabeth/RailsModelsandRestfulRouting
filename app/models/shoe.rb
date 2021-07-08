@@ -1,12 +1,21 @@
 class Shoe < ApplicationRecord
+    belongs_to :brand
+    accepts_nested_attributes_for :brand #brand_attributes=
+
+    def brand_attributes=(hash_of_attributes)
+        # byebug
+        if !hash_of_attributes["name"].blank? && !hash_of_attributes["year_founded"].blank?
+            self.brand = Brand.find_or_create_by(hash_of_attributes)
+        end
+    end
+
     validates :condition, presence: true
-    validates :name, presence: true, two_word: true, length: {minimum: 2, message: "has to be longer than 2!!!!!"}
     validates :price, numericality: {greater_than: 0, less_than: 5000}
-    validates :color, presence: true, two_word: true, uniqueness: {scope: [:name, :price]}
-    validate :too_many_shoes
+    validates :color, presence: true, two_word: true, uniqueness: {scope: [:brand, :price]}
+    # validate :too_many_shoes
 
     def name_and_color 
-        "#{self.name} - #{self.color}"
+        "#{self.brand.name} - #{self.color}"
     end
 
     def self.order_by_price 

@@ -12,14 +12,21 @@
 <% end %>
 
 <%= form_for(@shoe) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %><br/>
 <%= f.label :price %>
 <%= f.number_field :price, step: 0.01%><br/>
 <%= f.label :condition %>
 <%= f.text_field :condition %><br/>
 <%= f.label :color %>
 <%= f.text_field :color  %><br/>
+<h3>Select an Already Existing Brand:</h3>
+<%= f.collection_select :brand_id, Brand.all, :id, :name %>
+<h3>Make a Brand: </h3>
+<%= f.fields_for :brand do |b| %>
+  <%= b.label :name %>
+  <%= b.text_field :name %><br/>
+  <%= b.label :year_founded %>
+  <%= b.number_field :year_founded %><br/>
+<% end %>
 <%= f.submit %>
 <% end %>
 
