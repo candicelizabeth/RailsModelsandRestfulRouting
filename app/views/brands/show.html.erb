@@ -2,5 +2,5 @@
 <%= @brand.year_founded%></>
 <h3><%=@brand.name %> Shoes List: </h3>
 <% @brand.shoes.each do |shoe| %>
-<h2><%= link_to shoe.name_and_color, shoe_path(shoe) %> - <%= number_to_currency(shoe.price)%></h2>
+<%= render @brand.shoes %>
 <% end %>

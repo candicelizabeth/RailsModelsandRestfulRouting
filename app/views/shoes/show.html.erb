@@ -1,6 +1,6 @@
 <h1>SHOW PAGE </h1>
 <%= @shoe.name_and_color %>
 <%= @shoe.condition %>
-<%= @shoe.price %>
+<%= display_price %>
 <%= link_to "Edit", edit_shoe_path(@shoe)%>
 <%= link_to "Delete", shoe_path(@shoe), method: 'delete' %>
